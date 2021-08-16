@@ -4,17 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//We will be simulating a deck of cards.
-//
-//Create a class Deck. It will hold a List of Cards.
-//In the constructor, initialize the List with all 52 cards.
-//Add a method checkDeckSize which returns the number of cards still in the deck.
-//Add a method dealCard that removes a Card from the deck.
-//Add a method shuffle to shuffle the deck.
-//(Solution: Deck.java)
-
 public class Deck {
-	List<Card> deck = new ArrayList<>();
+//	making this public because everyone knows which 52 cards
+//	are in a deck. but also mabybe should be private or make
+//	some of its methods private.
+	private List<Card> deck = new ArrayList<>();
 	Suit[] suits = Suit.values();
 	Rank[] ranks = Rank.values();
 
@@ -29,6 +23,16 @@ public class Deck {
 	
 	public int checkDeckSize() {
 		return this.deck.size();
+	}
+	
+	public void printTopCard() {
+		System.out.println(deck.get(0));
+	}
+	
+	public Card dealCard() {
+		Card card = this.deck.get(0);
+		this.deck.remove(0);
+		return card;
 	}
 
 	public void shuffle() {
